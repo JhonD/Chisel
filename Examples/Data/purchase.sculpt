@@ -1,0 +1,35 @@
+DELIMITERS
+Row delim = "\n"
+Col delim = ","
+
+TYPES
+Amount : base="integer" minimum = "1";
+Decimal : base="float";
+Date: base="date" format="yyyy-MM-dd";
+Price : "$"  Decimal; 
+CustomerName : base="string";
+ItemName : base="string";
+
+REGIONS
+Content = col("Customer")/right*;
+
+PairBuyer = (Amount = "2")/left* and col("Customer");
+ItemsRegion = col("Items")/right*;
+ExpensivePrices = Price >= "$10.99";
+Christmas = (Date >= "2016-12-01" and date <= "2016-12-27");
+MultiplePurchases = Amount/right+/self[Amount >= "3"];
+
+RULES
+row(1) -> "Customer" "Date" "Items";
+col("Customer") -> CustomerName;
+col("Date") -> Date;
+ItemsRegion -> (ItemName Amount? Price)*;
+
+TRANSFORMATION PROGRAM
+output("Customer", "Date", "Item", "Amount", "Price");
+for each (customer, date, items) in Content.is(CustomerName, Date, SOMETHING*) {
+	for each (item, amount, price) in items.split(ItemName, Amount?, Price) {
+		output(customer, date, item, amount, price);
+	}
+}
+

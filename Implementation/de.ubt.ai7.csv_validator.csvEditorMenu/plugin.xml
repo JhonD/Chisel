@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.core.expressions.definitions">
+	   <definition id="de.ubt.ai7.csv_validator.csvEditorMenu.testCsvExtension">
+       <not>
+          <reference
+                definitionId="de.ubt.ai7.csv_validator.Sculpt.Editor.opened">
+          </reference>
+       </not>
+	   </definition>
+	</extension>
+
+  <extension point="org.eclipse.ui.menus">
+    <menuContribution locationURI="popup:#TextEditorContext">
+        <menu
+              label="Sculpt">
+           <command
+                 commandId="de.ubt.ai7.csv_validator.csvEditorMenu.commands.RegisterCsvFileCommand"
+                 label="Load Csv File"
+                 style="push">
+              <visibleWhen
+                    checkEnabled="false">
+                 <reference
+                       definitionId="de.ubt.ai7.csv_validator.csvEditorMenu.testCsvExtension">
+                 </reference>
+              </visibleWhen>
+           </command>
+        </menu>
+    </menuContribution>
+  </extension>
+
+  <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+           class="de.ubt.ai7.csv_validator.csvEditorMenu.commands.handler.RegisterCsvFileHandler"
+           commandId="de.ubt.ai7.csv_validator.csvEditorMenu.commands.RegisterCsvFileCommand">
+     </handler>
+      
+  </extension>
+   
+  <extension
+        point="org.eclipse.ui.commands">
+        <command
+              id="de.ubt.ai7.csv_validator.csvEditorMenu.commands.RegisterCsvFileCommand"
+              name="Load Csv File">
+        </command>
+  </extension>
+
+</plugin>

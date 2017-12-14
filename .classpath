@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.console/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.csv.tabularOutline/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.csvEditorMenu/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.csvParser.tests/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.csvParser/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.CsvToSculptMappingView/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.library.caches.dataStructures.edit/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.library.caches.dataStructures.editor/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.library.caches.dataStructures/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.library.dataStructures/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.library.parser/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.library/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt.edit/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt.editor/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt.model/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt.tests/src-gen"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt.ui/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt.ui/src-gen"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt.ui/xtend-gen"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt/src"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt/src-gen"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.csv_validator.sculpt/xtend-gen"/>
+	<classpathentry kind="src" path="Implementation/de.ubt.ai7.sculpt.perspective/src"/>
+	<classpathentry kind="lib" path="Implementation/de.ubt.ai7.csv_validator.sculpt/.antlr-generator-3.2.0-patch.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Implementation/de.ubt.ai7.csv_validator.CsvToSculptMappingView/bin"/>
+</classpath>

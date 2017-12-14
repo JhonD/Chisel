@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DataStructures
+Bundle-SymbolicName: de.ubt.ai7.csv_validator.library.dataStructures
+Bundle-Version: 1.1.0.201712131425
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.ubt.ai7.csv_validator.library.dataStructures,
+ de.ubt.ai7.csv_validator.library.dataStructures.automaton,
+ de.ubt.ai7.csv_validator.library.dataStructures.automaton.contentExpressions,
+ de.ubt.ai7.csv_validator.library.dataStructures.automaton.pathExpressions,
+ de.ubt.ai7.csv_validator.util
+Require-Bundle: de.ubt.ai7.csv_validator.sculpt.model;bundle-version="0.1.0"

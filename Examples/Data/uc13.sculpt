@@ -1,0 +1,51 @@
+DELIMITERS
+Row delim = "\n"
+Col delim = "\t"
+
+TYPES
+int : base = "integer"
+rdfId : base = "IRI"
+label : base = "string"
+documentID : "D00" int
+span : int "-" int
+certainty : base = "float" minimum = "0" maximum = "1.0" default = "1.0"
+
+TOKENS
+subject = "subject"
+predicate = "predicate"
+object = "object"
+provenance = "provenance"
+test = ".*[:].*"
+
+REGIONS
+content = col(subject)/right*;
+myregion = col(last);
+
+RULES
+row(1)-> subject predicate object provenance;
+col("subject")-> rdfId;
+col("predicate")-> rdfId | label;
+col("object")-> rdfId | label;
+col("provenance")/right* ->(documentID span* certainty?)*;
+primary key spoTuple : col(1){
+	self, right, right/right
+};
+
+TRANSFORMATION PROGRAM
+Row delim = "\n"
+Col delim = ","
+
+output("subject", "predicate", "object", "documentID", "start", "end", "certainty");
+for each(s, p, o, x) in content.is(rdfId, label, label, SOMETHING*){
+	if(x is empty){
+		output(s, p, o, "", "", "", "");
+	}
+	else {
+		for each(doc, spa, cert) in x.split(documentID, span*, certainty?){
+			for each(sp) in spa.split(span){
+				output(s, p, o, doc, sp.int<0>, sp.int<1>, cert);
+			}
+		}
+	}
+}
+

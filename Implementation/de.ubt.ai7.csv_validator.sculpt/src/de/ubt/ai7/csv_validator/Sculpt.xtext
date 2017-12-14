@@ -1,0 +1,325 @@
+grammar de.ubt.ai7.csv_validator.Sculpt with org.eclipse.xtext.common.Terminals
+
+import "platform:/resource/de.ubt.ai7.csv_validator.sculpt.model/model/Sculpt.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Sculpt:
+	{Sculpt}
+	('DELIMITERS' delimiter=Delimiters)?
+	('TYPES' (types+=Type)*)?
+	('TOKENS' (tokens+=Token)* )?
+	('REGIONS' (regionTokens+=RegionToken)* )?
+	('RULES' (constraints+=Constraint)* )?
+	('TRANSFORMATION PROGRAM' transformationProgram=TransformationProgram )?
+;
+
+Delimiters:
+	(
+		(
+			('Row delim' '=' rowDelim=STRING ";"?) &
+			('Col delim' '=' colDelim=STRING ";"?) 
+		) &
+		('List delim' '=' listDelim=STRING ";"?)?
+	)
+;
+
+Type:
+	{AtomicType}	name=ID ":" ("base" '=' base=STRING) 
+								(("format" '=' format=STRING)? &
+								("decimalChar" '=' decimalChar=STRING)? &
+								("groupChar" '=' groupChar=STRING)? &
+								("length" '=' length=INT)? & 
+								("minLength" '=' minLength=INT)? & 
+								("maxLength" '=' maxLength=INT)? &
+								(("minimum" | "minInclusive") '=' minimum=STRING)? & 
+								(("maximum" | "maxInclusive") '=' maximum=STRING)? & 
+								("minExclusive" '=' minExclusive=STRING)? &
+								("maxExclusive" '=' maxExclusive=STRING)? &
+								("default" '=' defaultValue=STRING)? &
+								("empty" '=' emptyValue=STRING)?) ";"? |
+	{CompoundType}	name=ID ":" (primitives+=CompoundTypePrimitive "+"?)* primitives+=CompoundTypePrimitive 
+								(("default" '=' defaultValue=STRING)? & ("empty" '=' emptyValue=STRING)?) ";"? |
+	{ListType}	name=ID ":" (("list" "<" (("base" '=' base=[Type]) & 
+										("minElements" '=' minElements=INT)? & 
+										("maxElements" '=' (maxElements=INT | "UNBOUNDED"))? & 
+										("separator" '=' separator=STRING)?
+								) ">") & 
+								("default" '=' defaultValue=STRING)? & 
+								("empty" '=' emptyValue=STRING)?) ";"?
+;
+
+AbstractToken:
+	{Token} name=ID "=" tokenRegex=STRING ";"? |
+	{RegionToken} name=ID "=" region=NodeExpression ";"
+;
+
+Token:
+	{Token}
+	name=ID "=" tokenRegex=STRING ";"?
+;
+
+
+CompoundTypePrimitive:
+	{CompoundTypePrimitive} text=STRING | 
+	{CompoundTypePrimitive} type=[Type]
+;
+
+RegionToken:
+	{RegionToken}
+	name=ID "=" region=NodeExpression ";"
+;
+
+Constraint:
+	ContentConstraint |
+	PrimaryKeyConstraint |
+	ForeignKeyConstraint
+;
+
+ContentConstraint:
+	region=NodeExpression 
+	validationMode=ValidationMode
+	contentExpression=ContentExpression
+	';'
+;
+
+PrimaryKeyConstraint:
+	'primary' 'key' name=ID ':' tupleSelector=TupleSelector ';'
+;
+
+ForeignKeyConstraint:
+	'foreign' 'key' tupleSelector=TupleSelector 'references' referencedRelation=[PrimaryKeyConstraint] ';'
+;
+
+TupleSelector:
+	region=NodeExpression '{' selectors+=Path_Expression (',' selectors+=Path_Expression)* '}'
+;
+
+TransformationProgram:
+	delimiter=Delimiters?
+	(statements+=TLStatement)+
+;
+
+/*
+ * Region definition Grammar
+ */
+
+NodeExpression:
+	Ne_Or
+;
+
+Ne_Or returns NodeExpression:
+	Ne_And ({NodeExpressionOr.left=current} 'or' right=Ne_And)*
+;
+
+
+Ne_And returns NodeExpression:
+	Ne_Not ({NodeExpressionAnd.left=current} 'and' right=Ne_Not)*
+;
+
+Ne_Not returns NodeExpression:
+	{NodeExpressionNot} 'not' region=Ne_Path |
+	Ne_Path
+;
+
+Ne_Path returns NodeExpression:
+	=> Ne_Primitive ({NodeExpressionPath.region=current} ('/' path=Path_Expression))? | 
+	{NodeExpressionPath} '/' path=Path_Expression |
+	{PathExpressionPredicate} path=Path_Expression	
+;
+
+Ne_Primitive returns NodeExpression:
+	'(' Ne_Or ')' |
+	Ne_Comparison |
+	Ne_Atomic
+;
+
+enum RowCol : ROW = 'row' | COL = 'col';
+
+Ne_Atomic returns NodeExpression:
+	Ne_Atomic_Node_Test |
+	{NodeExpressionRowColCoordinate} mode=RowCol '(' row=INT ',' column=INT ')' |
+	{NodeExpressionRowColCoordinate} mode=RowCol '(' index=INT ')' | //custom setter assigning it to row, resp. column
+	{NodeExpressionRowColToken} mode=RowCol '(' token=[Token] ')' |
+	{NodeExpressionRowColString} mode=RowCol '(' string=STRING ')' |
+	{NodeExpressionRowColLast} mode=RowCol '(' 'last' ')' |
+	{NodeExpressionComplete} 'True'
+;
+
+enum Comparator: LT = '<' | LTEQ = '<=' | EQ = '=' | GT = '>' | GTEQ = '>=' | NEQ = '!=';
+
+Ne_Comparison returns NodeExpressionComparison:
+	type=[Type] (typeSpecifier+=TypeSpecifier)* comp=Comparator value=STRING |
+	{NodeExpressionComparisonR2L} value=STRING comp=Comparator type=[Type] (typeSpecifier+=TypeSpecifier)*
+;
+
+TypeSpecifier returns TypeSpecifier:
+	{CompoundTypeSpecifier} '.' subtype=[Type] ('<' index=INT '>')? |
+	{ListTypeSpecifier} '[' index=INT ']'
+;
+
+
+Ne_Atomic_Node_Test returns NodeExpressionPrimitive:
+	{NodeExpressionCoordinate} '(' row=INT ',' column=INT ')' |	
+	{NodeExpressionToken} token=[AbstractToken]
+;
+
+
+
+/*
+ * Path Expressions
+ */
+
+Path_Expression returns PathExpression:
+	Pe_Regex ({PathExpressionList.first=current} ('/' rest+=Pe_Regex)+)?
+;
+
+Pe_Regex returns PathExpression:
+	Pe_Primitive ({PathExpressionStar.element=current} '*' |
+		{PathExpressionPlus.element=current} '+' |
+		{PathExpressionOption.element=current} '?'
+	)?
+;
+
+Pe_Primitive returns PathExpression:
+	'(' Pe_Or ')' |
+	Pe_Atomic
+;
+
+Pe_Or returns PathExpression:
+	Path_Expression ({PathExpressionOr.left=current} '|' right=Path_Expression)*
+;
+
+Pe_Atomic returns PathExpression: 
+	{PathExpressionStep} 
+	axes=('right' | 'down' | 'left' | 'up' | 'self') 
+	('::' node_test=Ne_Atomic_Node_Test | '::*')?
+	('[' predicate=NodeExpression ']')?
+;
+
+/*
+ * Validation Mode
+ */
+
+enum ValidationMode: COMPLETE = '=>' | ROW_BY_ROW = '->' | COLUMN_BY_COLUMN = '|>';
+
+/*
+ * Content Expressions
+ */
+
+ContentExpression:
+	Ce_Or
+;
+
+Ce_Or returns ContentExpression:
+	Ce_List ({ContentExpressionOr.left=current} '|' right=Ce_List)*
+;
+
+Ce_List returns ContentExpression:
+	Ce_Recursive ({ContentExpressionList.first=current} rest=Ce_Recursive)*
+;
+
+Ce_Recursive returns ContentExpression:
+	Ce_Primitive ({ContentExpressionStar.element=current} '*' | 
+		{ContentExpressionPlus.element=current} '+' |
+		{ContentExpressionOption.element=current} '?'
+	)?
+;
+
+Ce_Primitive returns ContentExpression:
+	'(' ContentExpression ')' |
+	Ce_Comparison |
+	Ce_Atomic
+;
+
+Ce_Atomic returns ContentExpression:
+	{ContentExpressionToken} token=[Token] |
+	{ContentExpressionString} string=STRING |
+	{ContentExpressionANY} 'ANY' |
+	{ContentExpressionEMPTY} 'EMPTY' |
+	{ContentExpressionSOMETHING} 'SOMETHING'
+	;
+
+Ce_Comparison returns ContentExpressionComparison:
+	type=[Type] (typeSpecifier+=TypeSpecifier)* comp=Comparator value=STRING  |
+	'(' type=[Type] (typeSpecifier+=TypeSpecifier)* comp=Comparator "./" path=Path_Expression ')' |
+	{ContentExpressionComparisonR2L} ("./" path=Path_Expression | value=STRING) comp=Comparator type=[Type] (typeSpecifier+=TypeSpecifier)* 
+;
+
+
+TLVariable:
+	name=ID
+;
+
+TLOutputPrimitive:
+	{TLOutputConstant} text=STRING |
+	{TLOutputVariable} variable=[TLVariable] (typeSpecifier+=TypeSpecifier)*	
+;
+
+
+TL_Ce_List returns TLContentExpressionList:
+	{TLContentExpressionList} list+=TL_Ce_Recursive (',' list+=Ce_Recursive)*
+;
+
+TL_Ce_Recursive returns ContentExpression:
+	TL_Ce_Atomic ({ContentExpressionStar.element=current} '*' | 
+		{ContentExpressionPlus.element=current} '+' |
+		{ContentExpressionOption.element=current} '?'
+	)?
+;
+
+TL_Ce_Atomic returns ContentExpression:
+	{ContentExpressionToken} token=[Token] |
+	{ContentExpressionString} string=STRING |
+	{ContentExpressionANY} 'ANY' |
+	{ContentExpressionEMPTY} 'EMPTY' |
+	{ContentExpressionSOMETHING} 'SOMETHING'
+	;
+ 
+TLOutput:
+	'output' '(' (primitives+=TLOutputPrimitive (',' primitives+=TLOutputPrimitive)*)? ')' ';'
+;
+
+/*
+ * Loop Mode
+ */
+
+enum TLLoopMode: COMPLETE = 'is' | SPLIT = 'split';
+
+
+TLLoop:
+	'for' 'each' '('  variables+=TLVariable (',' variables+=TLVariable)* ')' 
+	'in'  region=NodeExpression ('.' mode=TLLoopMode '(' contentExpression=TL_Ce_List ')')?
+	'{'
+		(statements+=TLStatement)*
+	'}'
+;
+
+
+TLStatement:
+	TLOutput |
+	TLLoop |
+	TLIf
+;
+
+TLIf:
+	'if' '(' condition=TLBoolExpr ')' '{'
+		(ifBlock+=TLStatement)*
+	'}' 
+	('else' '{'
+		(elseBlock+=TLStatement)*		
+	'}')?
+;
+
+TLBoolExpr:
+	=> TLBoolExprNot |
+	TLBoolExprEmpty
+;
+
+TLBoolExprNot:
+	'not' '(' expression=TLBoolExpr ')'
+;
+
+TLBoolExprEmpty:
+	region=NodeExpression 'is' 'empty'
+;
+

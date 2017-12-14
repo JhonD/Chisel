@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated CachedDataStructures -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.ubt.ai7.csv_validator.caches.dataStructures.presentation.dataStructuresModelWizardID"
+            name="%_UI_dataStructuresModelWizard_label"
+            class="de.ubt.ai7.csv_validator.caches.dataStructures.presentation.dataStructuresModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/dataStructuresModelFile.gif">
+         <description>%_UI_dataStructuresModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated CachedDataStructures -->
+      <editor
+            id="de.ubt.ai7.csv_validator.caches.dataStructures.presentation.dataStructuresEditorID"
+            name="%_UI_dataStructuresEditor_label"
+            icon="icons/full/obj16/dataStructuresModelFile.gif"
+            extensions="datastructures"
+            class="de.ubt.ai7.csv_validator.caches.dataStructures.presentation.dataStructuresEditor"
+            contributorClass="de.ubt.ai7.csv_validator.caches.dataStructures.presentation.dataStructuresActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

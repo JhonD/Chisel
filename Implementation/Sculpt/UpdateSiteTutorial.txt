@@ -1,0 +1,4 @@
+Step 1: Delete all but the site.xml and this file
+Step 2: Change the version number of the Feature plugin, force synchronization to all plugins, and so on (make sure that new projects are included)
+Step 3: in site.xml remove the feature and add the new one (new version)
+Step 4: Build the update site

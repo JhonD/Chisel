@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Sculpt -->
+      <package
+            uri="http://www.ubt.de/ai7/csv_validator/Sculpt/Model"
+            class="de.ubt.ai7.csv_validator.sculpt.SculptPackage"
+            genModel="model/Sculpt.genmodel"/>
+   </extension>
+
+</plugin>

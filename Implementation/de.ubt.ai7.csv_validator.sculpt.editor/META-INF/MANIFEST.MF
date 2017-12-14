@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.ubt.ai7.csv_validator.sculpt.editor;singleton:=true
+Bundle-Version: 1.1.0.201712131425
+Bundle-ClassPath: .
+Bundle-Activator: de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.ubt.ai7.csv_validator.sculpt.presentation
+Require-Bundle: org.eclipse.core.runtime,
+ de.ubt.ai7.csv_validator.sculpt.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.emf.edit.ui;visibility:=reexport
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,28 @@
+TYPES
+JobDescription : base="string"
+TwoDigits : base="integer" minimum ="10" maximum="99"
+FourDigits : base="integer" minimum ="0000" maximum="9999"
+Group_id : TwoDigits '-' FourDigits
+
+REGIONS
+
+content = col("Major Group")/down/right*;
+
+RULES
+
+// the first 4 columns of every line beyond row 13 must contain exactly one Group_id
+col(5)/left+ and row(13)/down+ and not row(last) -> EMPTY* Group_id EMPTY*;
+
+// the next line's group id must be at maximum one layer deeper than the current
+Group_id/down/(right | left*) and not row(last) and col(5)/left+ -> EMPTY* Group_id EMPTY*;
+
+col(5)/right* and row(13)/down+ and not row(last) -> JobDescription EMPTY*;
+
+content -> EMPTY* Group_id EMPTY* JobDescription EMPTY*;
+
+TRANSFORMATION PROGRAM
+
+output("Group-ID","Job description");
+for each (buffer1, grpup_id, buffer2, jobDesc, buffer3) in content.is(EMPTY*, Group_id, EMPTY*, JobDescription, EMPTY*){
+	output(grpup_id, jobDesc);
+}

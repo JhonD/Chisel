@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+         point="org.eclipse.ui.views">
+   <view
+         category="org.eclipse.ui"
+         class="de.ubt.ai7.csv_validator.csv.tabularOutline.TableView"
+         id="de.ubt.ai7.csv_validator.csv.tabularOutline.tableView"
+         name="CSV Preview"
+         restorable="false">
+   </view>
+</extension>
+</plugin>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="SculptEditorAdvisorApplication">
+      <!-- @generated Sculpt -->
+      <application>
+         <run class="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated Sculpt -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisor$Perspective"
+            id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated Sculpt -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated Sculpt -->
+      <key
+            commandId="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated Sculpt -->
+      <actionSet
+            label="%_UI_SculptEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="SculptEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorOpenURICommand"
+               class="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorOpenCommand"
+               class="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated Sculpt -->
+      <actionSet
+            label="%_UI_SculptModelWizard_ActionSet_label"
+            visible="true"
+            id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptActionBarContributorActionSet">
+         <action
+               label="%_UI_SculptModelWizard_label"
+               class="de.ubt.ai7.csv_validator.sculpt.presentation.SculptActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Sculpt -->
+      <editor
+            id="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditorID"
+            name="%_UI_SculptEditor_label"
+            icon="icons/full/obj16/SculptModelFile.gif"
+            extensions="sculpt"
+            class="de.ubt.ai7.csv_validator.sculpt.presentation.SculptEditor"
+            contributorClass="de.ubt.ai7.csv_validator.sculpt.presentation.SculptActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

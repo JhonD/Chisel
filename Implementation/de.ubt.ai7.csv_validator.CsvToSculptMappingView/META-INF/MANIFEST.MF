@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CsvToSculptMappingView
+Bundle-SymbolicName: de.ubt.ai7.csv_validator.CsvToSculptMappingView
+Bundle-Version: 1.1.0.201712131425
+Bundle-Activator: de.ubt.ai7.csv_validator.csvtosculptmappingview.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.ubt.ai7.csv_validator.library.dataStructures,
+ de.ubt.ai7.csv_validator.library
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: de.ubt.ai7.csv_validator.csvtosculptmappingview

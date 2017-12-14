@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.ubt.ai7.csv_validator.sculpt.model
+Bundle-SymbolicName: de.ubt.ai7.csv_validator.sculpt.model; singleton:=true
+Bundle-Version: 1.1.0.201712131425
+Require-Bundle: org.eclipse.emf.ecore
+Export-Package: de.ubt.ai7.csv_validator.sculpt,
+ de.ubt.ai7.csv_validator.sculpt.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

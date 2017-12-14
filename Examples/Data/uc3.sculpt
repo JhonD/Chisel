@@ -1,0 +1,31 @@
+DELIMITERS
+Row delim="\n"
+Col delim="\t"
+
+TYPES
+Int: base="integer"
+Float: base="float" decimalChar="." default="-999.00"
+Name: base="string"
+Char: base="string" minLength=1 maxLength=1
+NumberWithChar: Int + Char
+
+TOKENS
+Year = '([1-9][0-9])\\d{2}.\\d{2}'
+
+REGIONS
+content = col("Tmax")/(right[Float < "0"])*/right[Float > "0"]/right*/left*;
+
+RULES
+row(1) => Int "ENTEBBE" EMPTY*;
+row(2) => Int EMPTY *;
+row("ENTEBBE") and not row(1)-> Name Float Float NumberWithChar EMPTY;
+col("Tmax")/right* -> Year Float Float Float Float Float;
+
+
+TRANSFORMATION PROGRAM
+Row delim = "\n"
+Col delim = ","
+
+for each (year, temp1, temp2, temp3, temp4, temp5) in content {
+		output(year, temp1, temp2, temp3, temp4, temp5);
+}

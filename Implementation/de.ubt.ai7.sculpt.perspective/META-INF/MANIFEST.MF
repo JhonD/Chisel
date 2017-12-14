@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Perspective
+Bundle-SymbolicName: de.ubt.ai7.sculpt.perspective;singleton:=true
+Bundle-Version: 1.1.0.201712131425
+Bundle-Activator: de.ubt.ai7.sculpt.perspective.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.ubt.ai7.csv_validator.console;bundle-version="1.0.0",
+ de.ubt.ai7.csv_validator.csv.tabularOutline;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

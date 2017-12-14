@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.ubt.ai7.csv_validator.sculpt.model/src" editDirectory="/de.ubt.ai7.csv_validator.sculpt.edit/src"
+    editorDirectory="/de.ubt.ai7.csv_validator.sculpt.editor/src" modelPluginID="de.ubt.ai7.csv_validator.sculpt.model"
+    forceOverwrite="true" modelName="Sculpt" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    editPluginID="de.ubt.ai7.csv_validator.sculpt.edit" editorPluginID="de.ubt.ai7.csv_validator.sculpt.editor"
+    runtimeVersion="2.12" language="" runtimePlatform="RCP">
+  <foreignModel>Sculpt.ecore</foreignModel>
+  <genPackages prefix="Sculpt" basePackage="de.ubt.ai7.csv_validator" disposableProviderFactory="true"
+      fileExtensions="sculpt" ecorePackage="Sculpt.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sculpt.ecore#//Comparator">
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//Comparator/LT"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//Comparator/LTEQ"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//Comparator/EQ"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//Comparator/GT"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//Comparator/GTEQ"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//Comparator/NEQ"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sculpt.ecore#//RowCol">
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//RowCol/ROW"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//RowCol/COL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sculpt.ecore#//ValidationMode">
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//ValidationMode/COMPLETE"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//ValidationMode/ROW_BY_ROW"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//ValidationMode/COLUMN_BY_COLUMN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sculpt.ecore#//TLLoopMode">
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//TLLoopMode/UNSPECIFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//TLLoopMode/COMPLETE"/>
+      <genEnumLiterals ecoreEnumLiteral="Sculpt.ecore#//TLLoopMode/SPLIT"/>
+    </genEnums>
+    <genClasses ecoreClass="Sculpt.ecore#//Sculpt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//Sculpt/delimiter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//Sculpt/tokens"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//Sculpt/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//Sculpt/regionTokens"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//Sculpt/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//Sculpt/transformationProgram"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//SchemaElement">
+      <genOperations ecoreOperation="Sculpt.ecore#//SchemaElement/toString"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//Delimiters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//Delimiters/rowDelim"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//Delimiters/colDelim"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//Delimiters/listDelim"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Sculpt.ecore#//AbstractToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AbstractToken/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//Type/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//Type/emptyValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//AtomicType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/minLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/maxLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/base"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/groupChar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/decimalChar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/minExclusive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/maxExclusive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//AtomicType/length"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//CompoundType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//CompoundType/primitives"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ListType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//ListType/separator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//ListType/minElements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//ListType/maxElements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ListType/base"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//CompoundTypePrimitive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//CompoundTypePrimitive/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//CompoundTypePrimitive/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//Token">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//Token/tokenRegex"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//RegionToken">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//RegionToken/region"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//Constraint"/>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentConstraint/region"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentConstraint/contentExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//ContentConstraint/validationMode"/>
+      <genOperations ecoreOperation="Sculpt.ecore#//ContentConstraint/toString"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//RelationConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//RelationConstraint/tupleSelector"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//PrimaryKeyConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//PrimaryKeyConstraint/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ForeignKeyConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ForeignKeyConstraint/referencedRelation"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TransformationProgram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TransformationProgram/delimiter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TransformationProgram/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TupleSelector">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TupleSelector/region"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TupleSelector/selectors"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Sculpt.ecore#//NodeExpression">
+      <genOperations ecoreOperation="Sculpt.ecore#//NodeExpression/toString"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Sculpt.ecore#//NodeExpressionPrimitive"/>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionOr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionOr/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionOr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionAnd">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionAnd/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionAnd/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionNot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionNot/region"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionPath">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionPath/region"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionPath/path"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionToken">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionToken/token"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionCoordinate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionCoordinate/row"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionCoordinate/column"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionComplete"/>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionRowCol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionRowCol/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionRowColCoordinate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionRowColCoordinate/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionRowColCoordinate/row"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionRowColCoordinate/column"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionRowColToken">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionRowColToken/token"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionRowColString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionRowColString/string"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionRowColLast"/>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionComparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionComparison/comp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//NodeExpressionComparison/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionComparison/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//NodeExpressionComparison/typeSpecifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//NodeExpressionComparisonR2L"/>
+    <genClasses ecoreClass="Sculpt.ecore#//PathExpressionPredicate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionPredicate/path"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//PathExpression">
+      <genOperations ecoreOperation="Sculpt.ecore#//PathExpression/toString"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//PathExpressionList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionList/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionList/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//PathExpressionStar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionStar/element"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//PathExpressionPlus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionPlus/element"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//PathExpressionOption">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionOption/element"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//PathExpressionOr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionOr/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionOr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//PathExpressionStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//PathExpressionStep/axes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionStep/node_test"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//PathExpressionStep/predicate"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpression">
+      <genOperations ecoreOperation="Sculpt.ecore#//ContentExpression/toString"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionOr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionOr/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionOr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionList/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionList/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionStar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionStar/element"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionPlus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionPlus/element"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionOption">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionOption/element"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionToken">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionToken/token"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//ContentExpressionString/string"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionANY"/>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionEMPTY"/>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionSOMETHING"/>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionComparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//ContentExpressionComparison/comp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//ContentExpressionComparison/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionComparison/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionComparison/typeSpecifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//ContentExpressionComparison/path"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ContentExpressionComparisonR2L"/>
+    <genClasses ecoreClass="Sculpt.ecore#//TLContentExpressionList">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLContentExpressionList/list"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Sculpt.ecore#//TypeSpecifier"/>
+    <genClasses ecoreClass="Sculpt.ecore#//CompoundTypeSpecifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//CompoundTypeSpecifier/subtype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//CompoundTypeSpecifier/index"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//ListTypeSpecifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//ListTypeSpecifier/index"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TLElement"/>
+    <genClasses ecoreClass="Sculpt.ecore#//TLVariable"/>
+    <genClasses ecoreClass="Sculpt.ecore#//TLOutputPrimitive"/>
+    <genClasses ecoreClass="Sculpt.ecore#//TLOutputConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//TLOutputConstant/text"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TLOutputVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLOutputVariable/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLOutputVariable/typeSpecifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TLStatement"/>
+    <genClasses ecoreClass="Sculpt.ecore#//TLOutput">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLOutput/primitives"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TLLoop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLLoop/variables"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLLoop/region"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLLoop/contentExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLLoop/statements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sculpt.ecore#//TLLoop/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TLIf">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLIf/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLIf/ifBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLIf/elseBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TLBoolExpr"/>
+    <genClasses ecoreClass="Sculpt.ecore#//TLBoolExprEmpty">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLBoolExprEmpty/region"/>
+    </genClasses>
+    <genClasses ecoreClass="Sculpt.ecore#//TLBoolExprNot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sculpt.ecore#//TLBoolExprNot/expression"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

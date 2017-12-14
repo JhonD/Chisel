@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DataStructures
+Bundle-SymbolicName: de.ubt.ai7.csv_validator.caches.dataStructures;singleton:=true
+Bundle-Version: 1.1.0.201712131425
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.ecore,
+ de.ubt.ai7.csv_validator.library.dataStructures,
+ de.ubt.ai7.csv_validator.sculpt.model,
+ de.ubt.ai7.csv_validator.library.parser
+Export-Package: de.ubt.ai7.csv_validator.caches.dataStructures,
+ de.ubt.ai7.csv_validator.caches.dataStructures.util

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.ubt.ai7.sculpt.perspective.SculptPerspective"
+            id="de.ubt.ai7.sculpt.perspective.perspective1"
+            name="Chisel">
+      </perspective>
+   </extension>
+
+</plugin>

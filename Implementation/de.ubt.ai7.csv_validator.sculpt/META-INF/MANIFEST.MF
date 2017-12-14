@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.ubt.ai7.csv_validator.sculpt
+Bundle-Vendor: My Company
+Bundle-Version: 1.1.0.201712131425
+Bundle-SymbolicName: de.ubt.ai7.csv_validator.sculpt; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ de.ubt.ai7.csv_validator.sculpt.model,
+ org.eclipse.xtext.util,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ de.ubt.ai7.csv_validator.library.parser
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.ubt.ai7.csv_validator,
+ de.ubt.ai7.csv_validator.services,
+ de.ubt.ai7.csv_validator.serializer,
+ de.ubt.ai7.csv_validator.parser.antlr,
+ de.ubt.ai7.csv_validator.parser.antlr.internal,
+ de.ubt.ai7.csv_validator.validation,
+ de.ubt.ai7.csv_validator.scoping,
+ de.ubt.ai7.csv_validator.generator,
+ de.ubt.ai7.csv_validator.formatting

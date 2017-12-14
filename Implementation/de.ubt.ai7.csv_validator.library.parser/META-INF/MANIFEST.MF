@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Parser
+Bundle-SymbolicName: de.ubt.ai7.csv_validator.library.parser
+Bundle-Version: 1.1.0.201712131425
+Export-Package: de.ubt.ai7.csv_validator.library.parser,
+ de.ubt.ai7.csv_validator.library.parser.impl
