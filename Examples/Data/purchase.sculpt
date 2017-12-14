@@ -16,7 +16,7 @@ Content = col("Customer")/right*;
 PairBuyer = (Amount = "2")/left* and col("Customer");
 ItemsRegion = col("Items")/right*;
 ExpensivePrices = Price >= "$10.99";
-Christmas = (Date >= "2016-12-01" and date <= "2016-12-27");
+Christmas = (Date >= "2016-12-01" and Date <= "2016-12-27");
 MultiplePurchases = Amount/right+/self[Amount >= "3"];
 
 RULES
