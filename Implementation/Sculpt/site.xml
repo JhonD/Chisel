@@ -4,5 +4,20 @@
       This Feature contains the components of the SCULPT Validation Engine. These include: 
       Sculpt Editor, Tabular CSV viewer, CSV parser.
    </description>
-   <feature url="features/de.ubt.ai7.sculpt.feature_1.1.0.201712131425.jar" id="de.ubt.ai7.sculpt.feature" version="1.1.0.201712131425"/>
+   <feature url="features/de.ubt.ai7.sculpt.feature_1.1.0.201712141316.jar" id="de.ubt.ai7.sculpt.feature" version="1.1.0.201712141316">
+      <category name="Chisel"/>
+   </feature>
+   <category-def name="Chisel" label="Chisel">
+      <description>
+         This Eclipse Plugins contains the components of the Chisel Validation and Transformation Engine. 
+These include, but are not limited to the Sculpt Schema Editor/Validator/Debuger and the CSV Transformer.
+
+Chisel - Copyright 2017 Johannes Doleschal, Nico Höllerich, Wim Martens, Frank Neven
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+      </description>
+   </category-def>
 </site>

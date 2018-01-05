@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: de.ubt.ai7.csv_validator.sculpt.tests
 Bundle-Vendor: My Company
-Bundle-Version: 1.1.0.201712131425
+Bundle-Version: 1.1.0.201712141316
 Bundle-SymbolicName: de.ubt.ai7.csv_validator.sculpt.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.ubt.ai7.csv_validator.sculpt,

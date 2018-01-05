@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: CsvParser
 Bundle-SymbolicName: de.ubt.ai7.csv_validator.csvParser
-Bundle-Version: 1.1.0.201712131425
+Bundle-Version: 1.1.0.201712141316
 Bundle-Activator: de.ubt.ai7.csv_validator.csvparser.Activator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
