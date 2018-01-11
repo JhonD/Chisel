@@ -778,6 +778,7 @@ public class TableViewTab implements Observer {
 		btnValidate.setEnabled(true);
 		btnUncoveredCells.setEnabled(true);
 		btnClearCaches.setEnabled(true);
+		btnMarkMode.setEnabled(true);
 		checkExtractionButton();
 	}
 

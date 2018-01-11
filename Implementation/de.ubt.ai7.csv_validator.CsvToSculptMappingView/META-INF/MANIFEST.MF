@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: CsvToSculptMappingView
 Bundle-SymbolicName: de.ubt.ai7.csv_validator.CsvToSculptMappingView
-Bundle-Version: 1.1.0.201712141316
+Bundle-Version: 1.1.0.201801111454
 Bundle-Activator: de.ubt.ai7.csv_validator.csvtosculptmappingview.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

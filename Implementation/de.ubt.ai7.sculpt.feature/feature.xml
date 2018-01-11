@@ -2,7 +2,7 @@
 <feature
       id="de.ubt.ai7.sculpt.feature"
       label="Chisel"
-      version="1.1.0.201712141316">
+      version="1.1.0.201801111454">
 
    <description url="https://github.com/JhonD/Chisel">
       This Eclipse Plugins contains the components of the Chisel Validation and Transformation Engine. 
@@ -256,126 +256,126 @@ These include, but are not limited to the Sculpt Schema Editor/Validator/Debuger
          id="de.ubt.ai7.csv_validator.console"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.csv.tabularOutline"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.csvEditorMenu"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.csvParser"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.CsvToSculptMappingView"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.library"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.library.dataStructures"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.sculpt"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.sculpt.edit"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.sculpt.editor"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.sculpt.model"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.sculpt.tests"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.sculpt.ui"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.sculpt.perspective"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.caches.dataStructures"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.caches.dataStructures.edit"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.caches.dataStructures.editor"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
    <plugin
          id="de.ubt.ai7.csv_validator.library.parser"
          download-size="0"
          install-size="0"
-         version="1.1.0.201712141316"
+         version="1.1.0.201801111454"
          unpack="false"/>
 
 </feature>

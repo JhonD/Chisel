@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.ubt.ai7.csv_validator.sculpt.edit;singleton:=true
-Bundle-Version: 1.1.0.201712141316
+Bundle-Version: 1.1.0.201801111454
 Bundle-ClassPath: .
 Bundle-Activator: de.ubt.ai7.csv_validator.sculpt.provider.SculptEditPlugin$Implementation
 Bundle-Vendor: %providerName

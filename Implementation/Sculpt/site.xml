@@ -4,7 +4,7 @@
       This Feature contains the components of the SCULPT Validation Engine. These include: 
       Sculpt Editor, Tabular CSV viewer, CSV parser.
    </description>
-   <feature url="features/de.ubt.ai7.sculpt.feature_1.1.0.201712141316.jar" id="de.ubt.ai7.sculpt.feature" version="1.1.0.201712141316">
+   <feature url="features/de.ubt.ai7.sculpt.feature_1.1.0.201801111454.jar" id="de.ubt.ai7.sculpt.feature" version="1.1.0.201801111454">
       <category name="Chisel"/>
    </feature>
    <category-def name="Chisel" label="Chisel">
